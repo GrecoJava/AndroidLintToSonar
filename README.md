@@ -5,3 +5,7 @@ A Gradle pluing that converts the Android Lint XML file to SonarQube Generic Iss
 [Generic Issue Import Format](https://docs.sonarqube.org/latest/analysis/generic-issue/)
 
 
+
+Usage
+
+
