@@ -7,12 +7,15 @@ public class AndroidLintToSonarPlugin implements Plugin<Project> {
 
     @Override
     public void apply(Project project) {
-        project.getTasks().create("hello", GreetingTask.class, (task) -> {
-            task.setMessage("Hello");
-            task.setRecipient("World");
-        });
-        project.getTasks().create("androidLintToSonar", AndroidLintToSonarTask.class, (task) -> {
+        System.out.println("AndroidLintToSonarPlugin::apply() called");
 
+        // AndroidLintToSonarPluginExtension extension = project.getExtensions().create("androidLintToSonar", AndroidLintToSonarPluginExtension.class);
+
+        project.getTasks().create("androidLintToSonar", AndroidLintToSonarTask.class, (task) -> {
+            System.out.println("AndroidLintToSonarPlugin::creating task androidLintToSonar");
+            // System.out.printf("AndroidLintToSonarPlugin::received extension: %s \n", extension.toString());
+            // task.setInputFiles(extension.getInputFiles());
+            // task.setOutputFile(extension.getOutputFile());
         });
     }
 }

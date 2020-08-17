@@ -12,7 +12,6 @@ public class AndroidLintToSonarPluginTest {
         Project project = ProjectBuilder.builder().build();
         project.getPluginManager().apply("biz.davidpearson.android.androidlinttosonar");
 
-        assertTrue(project.getTasks().getByName("hello") instanceof GreetingTask);
         assertTrue(project.getTasks().getByName("androidLintToSonar") instanceof AndroidLintToSonarTask);
     }
 }
