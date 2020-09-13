@@ -13,8 +13,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation(Depends.JUNIT)
+    implementation(Depends.JetBrains.ANNOTATION)
+    implementation(Depends.JSON)
+    testImplementation(Depends.JSONASSERT)
+    testImplementation(Depends.JUNIT5)
 }
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
+
 // Add a source set for the functional test suite
 val functionalTestSourceSet = sourceSets.create("functionalTest") {
     compileClasspath += sourceSets.main.get().output
@@ -28,6 +39,11 @@ configurations.getByName("functionalTestImplementation").extendsFrom(configurati
 val functionalTest by tasks.creating(Test::class) {
     testClassesDirs = functionalTestSourceSet.output.classesDirs
     classpath = functionalTestSourceSet.runtimeClasspath
+
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
 
 val check by tasks.getting(Task::class) {
@@ -35,14 +51,14 @@ val check by tasks.getting(Task::class) {
     dependsOn(functionalTest)
 }
 
-group = "biz.davidpearson.android"
+group = "biz.davidpearson.gradle"
 version = "0.1"
 
 gradlePlugin {
     plugins {
         create("androidLintToSonar") {
-            id = "biz.davidpearson.android.androidlinttosonar"
-            implementationClass = "biz.davidpearson.android.androidlinttosonar.AndroidLintToSonarPlugin"
+            id = "biz.davidpearson.gradle.androidlinttosonar"
+            implementationClass = "biz.davidpearson.gradle.androidlinttosonar.AndroidLintToSonarPlugin"
         }
     }
 }

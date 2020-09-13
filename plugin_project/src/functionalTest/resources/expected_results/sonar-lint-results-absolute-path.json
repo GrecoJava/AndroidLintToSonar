@@ -1,0 +1,116 @@
+{
+  "issues": [
+    {
+      "engineId": "Android Lint",
+      "ruleId": "SuspiciousImport",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks for 'import android.R' statements, which are usually accidental message: Don't include android.R here; use a fully qualified name for each usage instead",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/java/org/sonarsource/app/TestViolations.java",
+        "textRange": {
+          "startLine": "3",
+          "startColumn": "1"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "SuspiciousImport",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks for 'import android.R' statements, which are usually accidental message: Don't include android.R here; use a fully qualified name for each usage instead",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/java/org/sonarsource/app/TestViolations.java",
+        "textRange": {
+          "startLine": "3",
+          "startColumn": "1"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "NewApi",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Finds API accesses to APIs that are not supported in all targeted API versions message: Call requires API level 9 (current min is 7): android.os.StrictMode#enableDefaults",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/java/org/sonarsource/app/TestViolations.java",
+        "textRange": {
+          "startLine": "10",
+          "startColumn": "20"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "NewApi",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Finds API accesses to APIs that are not supported in all targeted API versions message: Call requires API level 9 (current min is 7): android.os.StrictMode#enableDefaults",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/java/org/sonarsource/app/TestViolations.java",
+        "textRange": {
+          "startLine": "10",
+          "startColumn": "20"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "RtlHardcoded",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for hardcoded left/right constants which could be start/end for bidirectional text message: Consider adding android:paddingStart=\"@dimen/activity_horizontal_margin\" to better support right-to-left layouts",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/res/layout/fragment_main.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "RtlHardcoded",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for hardcoded left/right constants which could be start/end for bidirectional text message: Consider adding android:paddingStart=\"@dimen/activity_horizontal_margin\" to better support right-to-left layouts",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/res/layout/fragment_main.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "RtlHardcoded",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for hardcoded left/right constants which could be start/end for bidirectional text message: Consider adding android:paddingEnd=\"@dimen/activity_horizontal_margin\" to better support right-to-left layouts",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/res/layout/fragment_main.xml",
+        "textRange": {
+          "startLine": "6",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "RtlHardcoded",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for hardcoded left/right constants which could be start/end for bidirectional text message: Consider adding android:paddingEnd=\"@dimen/activity_horizontal_margin\" to better support right-to-left layouts",
+        "filePath": "/home/benzonico/Development/SonarSource/sonar-tests-languages/it-android/projects/SonarAndroidSample/app/src/main/res/layout/fragment_main.xml",
+        "textRange": {
+          "startLine": "6",
+          "startColumn": "5"
+        }
+      }
+    }
+  ]
+}

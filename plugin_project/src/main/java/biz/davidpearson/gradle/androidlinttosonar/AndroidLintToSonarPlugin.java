@@ -1,4 +1,4 @@
-package biz.davidpearson.android.androidlinttosonar;
+package biz.davidpearson.gradle.androidlinttosonar;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;

@@ -1,0 +1,337 @@
+{
+  "issues": [
+    {
+      "engineId": "Android Lint",
+      "ruleId": "MissingRegistered",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that classes referenced in the manifest are present in the project or libraries message: Class referenced in the manifest, com.octo.appaloosasdk.async.AppaloosaSpiceService, was not found in the project or the libraries",
+        "filePath": "AndroidManifest.xml",
+        "textRange": {
+          "startLine": "64",
+          "startColumn": "9"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ScrollViewSize",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks that ScrollViews use wrap_content in scrolling dimension message: This RelativeLayout should use android:layout_height=\"wrap_content\"",
+        "filePath": "res/layout/fragment_octodetail.xml",
+        "textRange": {
+          "startLine": "9",
+          "startColumn": "9"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "OldTargetApi",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks that the manifest specifies a targetSdkVersion that is recent message: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.",
+        "filePath": "AndroidManifest.xml",
+        "textRange": {
+          "startLine": "6",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ExportedContentProvider",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks for exported content providers that do not require permissions message: Exported content providers can provide access to potentially sensitive data",
+        "filePath": "AndroidManifest.xml",
+        "textRange": {
+          "startLine": "70",
+          "startColumn": "9"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ExportedActivity",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Checks for exported activities that do not require permissions message: Exported activity does not require permission",
+        "filePath": "AndroidManifest.xml",
+        "textRange": {
+          "startLine": "35",
+          "startColumn": "9"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "Overdraw",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for overdraw issues (where a view is painted only to be fully painted over) message: Possible overdraw: Root element paints background @drawable/grey_background_pattern with a theme that also paints a background (inferred theme is @style/AppTheme)",
+        "filePath": "res/layout-sw600dp/activity_octolist.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "Overdraw",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for overdraw issues (where a view is painted only to be fully painted over) message: Possible overdraw: Root element paints background @color/grey_background with a theme that also paints a background (inferred theme is @android:style/Theme_NoTitleBar)",
+        "filePath": "res/layout/activity_splashscreen.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "Overdraw",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for overdraw issues (where a view is painted only to be fully painted over) message: Possible overdraw: Root element paints background @color/detail_background with a theme that also paints a background (inferred theme is @style/AppTheme)",
+        "filePath": "res/layout-sw600dp/fragment_emptydetail.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "Overdraw",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for overdraw issues (where a view is painted only to be fully painted over) message: Possible overdraw: Root element paints background @color/detail_background with a theme that also paints a background (inferred theme is @style/AppTheme)",
+        "filePath": "res/layout/fragment_octodetail.xml",
+        "textRange": {
+          "startLine": "5",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "UnusedResources",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Looks for unused resources message: The resource R.string.search_ettings_description appears to be unused",
+        "filePath": "res/values/strings.xml",
+        "textRange": {
+          "startLine": "7",
+          "startColumn": "13"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDipSize",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image grey_background_pattern_tile.png varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/grey_background_pattern_tile.png: 6x6 dp (6x6 px), drawable-xhdpi/grey_background_pattern_tile.png: 4x4 dp (8x8 px)",
+        "filePath": "res/drawable-xhdpi/grey_background_pattern_tile.png",
+        "textRange": {
+          "startLine": "1"
+        }
+      },
+      "secondaryLocations": [
+        {
+          "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image grey_background_pattern_tile.png varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/grey_background_pattern_tile.png: 6x6 dp (6x6 px), drawable-xhdpi/grey_background_pattern_tile.png: 4x4 dp (8x8 px)",
+          "filePath": "res/drawable-mdpi/grey_background_pattern_tile.png"
+        }
+      ]
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDipSize",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-hdpi/profile_anonymous.jpeg: 107x107 dp (160x160 px), drawable-mdpi/profile_anonymous.jpeg: 80x80 dp (80x80 px), drawable-xhdpi/profile_anonymous.jpeg: 80x80 dp (160x160 px)",
+        "filePath": "res/drawable-xhdpi/profile_anonymous.jpeg",
+        "textRange": {
+          "startLine": "1"
+        }
+      },
+      "secondaryLocations": [
+        {
+          "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-hdpi/profile_anonymous.jpeg: 107x107 dp (160x160 px), drawable-mdpi/profile_anonymous.jpeg: 80x80 dp (80x80 px), drawable-xhdpi/profile_anonymous.jpeg: 80x80 dp (160x160 px)",
+          "filePath": "res/drawable-mdpi/profile_anonymous.jpeg"
+        },
+        {
+          "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-hdpi/profile_anonymous.jpeg: 107x107 dp (160x160 px), drawable-mdpi/profile_anonymous.jpeg: 80x80 dp (80x80 px), drawable-xhdpi/profile_anonymous.jpeg: 80x80 dp (160x160 px)",
+          "filePath": "res/drawable-hdpi/profile_anonymous.jpeg"
+        }
+      ]
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDipSize",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous_thumb.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/profile_anonymous_thumb.jpeg: 80x80 dp (80x80 px), drawable-hdpi/profile_anonymous_thumb.jpeg: 53x53 dp (80x80 px), drawable-xhdpi/profile_anonymous_thumb.jpeg: 40x40 dp (80x80 px)",
+        "filePath": "res/drawable-xhdpi/profile_anonymous_thumb.jpeg",
+        "textRange": {
+          "startLine": "1"
+        }
+      },
+      "secondaryLocations": [
+        {
+          "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous_thumb.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/profile_anonymous_thumb.jpeg: 80x80 dp (80x80 px), drawable-hdpi/profile_anonymous_thumb.jpeg: 53x53 dp (80x80 px), drawable-xhdpi/profile_anonymous_thumb.jpeg: 40x40 dp (80x80 px)",
+          "filePath": "res/drawable-hdpi/profile_anonymous_thumb.jpeg"
+        },
+        {
+          "message": "summary: Ensures that icons across densities provide roughly the same density-independent size message: The image profile_anonymous_thumb.jpeg varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/profile_anonymous_thumb.jpeg: 80x80 dp (80x80 px), drawable-hdpi/profile_anonymous_thumb.jpeg: 53x53 dp (80x80 px), drawable-xhdpi/profile_anonymous_thumb.jpeg: 40x40 dp (80x80 px)",
+          "filePath": "res/drawable-mdpi/profile_anonymous_thumb.jpeg"
+        }
+      ]
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDuplicatesConfig",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Finds icons that have identical bitmaps across various configuration parameters message: The profile_anonymous.jpeg icon has identical contents in the following configuration folders: drawable-hdpi, drawable-xhdpi",
+        "filePath": "res/drawable-xhdpi/profile_anonymous.jpeg",
+        "textRange": {
+          "startLine": "1"
+        }
+      },
+      "secondaryLocations": [
+        {
+          "message": "summary: Finds icons that have identical bitmaps across various configuration parameters message: The profile_anonymous.jpeg icon has identical contents in the following configuration folders: drawable-hdpi, drawable-xhdpi",
+          "filePath": "res/drawable-hdpi/profile_anonymous.jpeg"
+        }
+      ]
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDensities",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that icons provide custom versions for all supported densities message: Missing the following drawables in drawable-hdpi: background_bob.png, grey_background_pattern_tile.png",
+        "filePath": "res/drawable-hdpi",
+        "textRange": {
+          "startLine": "1"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDensities",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that icons provide custom versions for all supported densities message: Missing the following drawables in drawable-mdpi: background_bob.png (found in drawable-xhdpi)",
+        "filePath": "res/drawable-mdpi",
+        "textRange": {
+          "startLine": "1"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "IconDuplicates",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Finds duplicated icons under different names message: The following unrelated icon files have identical contents: profile_anonymous_thumb.jpeg, profile_anonymous.jpeg, profile_anonymous_thumb.jpeg, profile_anonymous_thumb.jpeg",
+        "filePath": "res/drawable-xhdpi/profile_anonymous_thumb.jpeg",
+        "textRange": {
+          "startLine": "1"
+        }
+      },
+      "secondaryLocations": [
+        {
+          "message": "summary: Finds duplicated icons under different names message: The following unrelated icon files have identical contents: profile_anonymous_thumb.jpeg, profile_anonymous.jpeg, profile_anonymous_thumb.jpeg, profile_anonymous_thumb.jpeg",
+          "filePath": "res/drawable-mdpi/profile_anonymous_thumb.jpeg"
+        },
+        {
+          "message": "summary: Finds duplicated icons under different names message: The following unrelated icon files have identical contents: profile_anonymous_thumb.jpeg, profile_anonymous.jpeg, profile_anonymous_thumb.jpeg, profile_anonymous_thumb.jpeg",
+          "filePath": "res/drawable-mdpi/profile_anonymous.jpeg"
+        },
+        {
+          "message": "summary: Finds duplicated icons under different names message: The following unrelated icon files have identical contents: profile_anonymous_thumb.jpeg, profile_anonymous.jpeg, profile_anonymous_thumb.jpeg, profile_anonymous_thumb.jpeg",
+          "filePath": "res/drawable-hdpi/profile_anonymous_thumb.jpeg"
+        }
+      ]
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ContentDescription",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that image widgets provide a contentDescription message: [Accessibility] Missing contentDescription attribute on image",
+        "filePath": "res/layout-sw600dp/fragment_emptydetail.xml",
+        "textRange": {
+          "startLine": "9",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ContentDescription",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that image widgets provide a contentDescription message: [Accessibility] Missing contentDescription attribute on image",
+        "filePath": "res/layout/fragment_octodetail.xml",
+        "textRange": {
+          "startLine": "12",
+          "startColumn": "9"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "ContentDescription",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Ensures that image widgets provide a contentDescription message: [Accessibility] Missing contentDescription attribute on image",
+        "filePath": "res/layout/view_cell_octo.xml",
+        "textRange": {
+          "startLine": "8",
+          "startColumn": "5"
+        }
+      }
+    },
+    {
+      "engineId": "Android Lint",
+      "ruleId": "DefaultLocale",
+      "severity": "INFORMATION",
+      "type": "CODE_SMELL",
+      "primaryLocation": {
+        "message": "summary: Finds calls to locale-ambiguous String manipulation methods message: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead",
+        "filePath": "src\\com\\michaelnovakjr\\numberpicker\\NumberPicker.java",
+        "textRange": {
+          "startLine": "376",
+          "startColumn": "49"
+        }
+      }
+    }
+  ]
+}

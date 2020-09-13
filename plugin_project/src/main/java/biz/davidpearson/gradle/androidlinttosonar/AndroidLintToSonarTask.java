@@ -1,12 +1,8 @@
-package biz.davidpearson.android.androidlinttosonar;
+package biz.davidpearson.gradle.androidlinttosonar;
 
+import biz.davidpearson.gradle.androidlinttosonar.processing.ReadInput;
+import biz.davidpearson.gradle.androidlinttosonar.processing.WriteOutput;
 import org.gradle.api.DefaultTask;
-import org.gradle.api.Project;
-import org.gradle.api.file.FileCollection;
-import org.gradle.api.file.RegularFile;
-import org.gradle.api.file.RegularFileProperty;
-import org.gradle.api.provider.ListProperty;
-import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputFiles;
 import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
@@ -62,15 +58,7 @@ public class AndroidLintToSonarTask extends DefaultTask {
         }
         oFile.createNewFile();
 
-        // for each file
-        for (String pFile : inputFiles) {
-            File iFile = getProject().file(pFile);
-            if (iFile.exists()) {
-                System.out.printf("iFile: %s exists\n", iFile);
-            } else {
-                System.out.printf("iFile: %s does not exist\n", iFile);
-            }
-        }
+        WriteOutput.writeFile(ReadInput.readFile(inputFiles, getProject()), oFile);
 
         System.out.println("AndroidLintToSonarTask::processFiles - end");
     }
