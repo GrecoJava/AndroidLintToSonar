@@ -2,8 +2,8 @@ package biz.davidpearson.gradle.androidlinttosonar
 
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.skyscreamer.jsonassert.JSONAssert
 import org.skyscreamer.jsonassert.JSONCompareMode
 import java.io.File
@@ -11,14 +11,16 @@ import java.io.File
 /**
  * blatantly based on [AndroidLintReporterPluginFunctionalTest](https://github.com/worker8/AndroidLintReporter/blob/master/src/functionalTest/kotlin/android_lint_reporter/AndroidLintReporterPluginFunctionalTest.kt)
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class AndroidLintToSonarPluginFunctionalTest {
     private val projectDir = File("build/functionalTest")
 
-    @BeforeEach
-    fun cleanOutput() {
+    @BeforeAll
+    internal fun beforeAll() {
         projectDir.resolve("reports").deleteRecursively()
     }
 
+    @Suppress("FunctionName")
     @Test
     fun `all inputs`() {
         //
@@ -66,6 +68,7 @@ class AndroidLintToSonarPluginFunctionalTest {
         JSONAssert.assertEquals(expectedResults, actual, JSONCompareMode.STRICT)
     }
 
+    @Suppress("FunctionName")
     @Test
     fun `lint bad report`() {
         //
@@ -105,6 +108,7 @@ class AndroidLintToSonarPluginFunctionalTest {
         JSONAssert.assertEquals("{ \"issues\": []}", actual, JSONCompareMode.STRICT)
     }
 
+    @Suppress("FunctionName")
     @Test
     fun `lint report`() {
         //
@@ -147,6 +151,7 @@ class AndroidLintToSonarPluginFunctionalTest {
     }
 
 
+    @Suppress("FunctionName")
     @Test
     fun `lint report empty`() {
         //
@@ -188,6 +193,7 @@ class AndroidLintToSonarPluginFunctionalTest {
     }
 
 
+    @Suppress("FunctionName")
     @Test
     fun `lint report large`() {
         //
@@ -231,6 +237,7 @@ class AndroidLintToSonarPluginFunctionalTest {
     }
 
 
+    @Suppress("FunctionName")
     @Test
     fun `lint results absolute path`() {
         //
@@ -273,6 +280,7 @@ class AndroidLintToSonarPluginFunctionalTest {
         JSONAssert.assertEquals(expectedResults, actual, JSONCompareMode.STRICT)
     }
 
+    @Suppress("FunctionName")
     @Test
     fun `lint unknown rule report`() {
         //
@@ -315,6 +323,7 @@ class AndroidLintToSonarPluginFunctionalTest {
         JSONAssert.assertEquals(expectedResults, actual, JSONCompareMode.STRICT)
     }
 
+    @Suppress("FunctionName")
     @Test
     fun `lint file does not exist`() {
         //
@@ -352,6 +361,49 @@ class AndroidLintToSonarPluginFunctionalTest {
 
         // validate the output
         JSONAssert.assertEquals("{ \"issues\": []}", actual, JSONCompareMode.STRICT)
+    }
+
+    @Suppress("FunctionName")
+    @Test
+    fun `lint report 20200919`() {
+        //
+        projectDir.mkdirs()
+        projectDir.resolve("settings.gradle").writeText("")
+        projectDir.resolve("build.gradle").writeText(
+            """
+            plugins {
+                id("biz.davidpearson.gradle.androidlinttosonar")
+            }
+            androidLintToSonar {
+                inputFiles = [
+                              "../../src/functionalTest/resources/lint-results-20200919.xml"
+                              ]
+                outputFile = "./reports/androidLintToSonar/sonar-lint-results-20200919.json"
+            }
+        """
+        )
+
+        // run the build
+        val runner = GradleRunner.create()
+        runner.forwardOutput()
+        runner.withPluginClasspath()
+        runner.withArguments(listOf("androidLintToSonar"))
+        runner.withProjectDir(projectDir)
+
+        runner.build()
+        // val results = runner.build()
+
+        // println("output: ${results.output} ++++++")
+
+        // obtain JSON file contents
+        val actual = projectDir.resolve("./reports/androidLintToSonar/sonar-lint-results-20200919.json")
+            .readText(Charsets.UTF_8)
+
+        // validate the output
+        val expectedResults =
+            projectDir.resolve("../../src/functionalTest/resources/expected_results/sonar-lint-results-20200919.json")
+                .readText(Charsets.UTF_8)
+        JSONAssert.assertEquals(expectedResults, actual, JSONCompareMode.STRICT)
     }
 
 

@@ -16,6 +16,7 @@ public class WriteOutput {
     private static final String PREAMBLE = "{ \"issues\": [";
     private static final String CONCLUSION = "]}";
 
+
     /**
      * pre-condition: output file exists
      * <p>
@@ -50,25 +51,27 @@ public class WriteOutput {
     private static String issueToJson(@NotNull Issue issue) {
 
         return "{" +
-       "\"engineId\":\"Android Lint\"," +
-       "\"ruleId\":" +
-       JSONObject.quote(issue.getId()) +
-       "," +
-       "\"severity\":" +
-       JSONObject.quote(severityToSeverity(issue.getSeverity())) +
-       "," +
-       "\"type\":" +
-       JSONObject.quote(categoryToType(issue.getCategory())) +
-       "," +
-       issueLocationsToJson(issue.getLocations(),
-                             "summary: " + issue.getSummary() + " message: " + issue.getMessage()) +
-       "}";
+               "\"engineId\":\"Android Lint\"," +
+               "\"ruleId\":" +
+               JSONObject.quote(issue.getId()) +
+               "," +
+               "\"severity\":" +
+               JSONObject.quote(severityToSeverity(issue.getSeverity())) +
+               "," +
+               "\"type\":" +
+               JSONObject.quote(categoryToType(issue.getCategory())) +
+               "," +
+               issueLocationsToJson(issue.getLocations(),
+                                    "summary: " + issue.getSummary() + " message: " + issue.getMessage()) +
+               "}";
     }
 
     private static String issueLocationsToJson(@NotNull Collection<Location> locations, @NotNull String message) {
 
         StringBuilder primaryLocationBuff = new StringBuilder();
         StringBuilder secondaryLocationBuff = new StringBuilder(", \"secondaryLocations\": [ ");
+        String primaryLocationStartLine = null;
+
         int kk = 0;
         boolean isSecond = true;
         for (Location location : locations) {
@@ -84,9 +87,9 @@ public class WriteOutput {
                 if (location.getLine() != null && location.getLine().isEmpty()) {
                     primaryLocationBuff.append("\"1\"");
                 } else {
+                    primaryLocationStartLine = location.getLine();
                     primaryLocationBuff.append(JSONObject.quote(location.getLine()));
                 }
-
                 if (location.getColumn() != null && !location.getColumn().isEmpty()) {
                     primaryLocationBuff.append(",\"startColumn\":").append(JSONObject.quote(location.getColumn()));
                 }
@@ -110,8 +113,18 @@ public class WriteOutput {
                         secondaryLocationBuff.append(",\"startColumn\":")
                                              .append(JSONObject.quote(location.getColumn()));
                     }
-                    secondaryLocationBuff.append("}");
+                } else {
+                    // use start line from primary location - textRange is not optional, even though the
+                    // documentation says it is
+                    secondaryLocationBuff.append(",").append("\"textRange\":{").append("\"startLine\":");
+
+                    if (primaryLocationStartLine != null) {
+                        secondaryLocationBuff.append(JSONObject.quote(primaryLocationStartLine));
+                    } else {
+                        secondaryLocationBuff.append(JSONObject.quote("1"));
+                    }
                 }
+                secondaryLocationBuff.append("}");
                 secondaryLocationBuff.append("}");
                 isSecond = false;
             }
@@ -130,7 +143,7 @@ public class WriteOutput {
      * convert Android Lint severity value to Sonar severity value
      */
     private static String severityToSeverity(String severity) {
-        String retVal = "INFORMATION";
+        String retVal = "INFO";
         switch (severity) {
             case "FATAL":
                 retVal = "BLOCKER";
@@ -143,7 +156,7 @@ public class WriteOutput {
                 break;
             case "INFORMATION":
             case "IGNORE":
-                retVal = "INFORMATION";
+                retVal = "INFO";
                 break;
         }
         return retVal;

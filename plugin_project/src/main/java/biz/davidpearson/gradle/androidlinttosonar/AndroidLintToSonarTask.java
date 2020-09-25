@@ -50,7 +50,7 @@ public class AndroidLintToSonarTask extends DefaultTask {
         // list the output
         System.out.printf("AndroidLintToSonarTask::outputFile: %s\n", outputFile);
 
-        // create the output - overwrite the existing?
+        // create the output - overwrite the existing
         File oFile = getProject().file(outputFile);
 
         if (oFile.exists()) {
