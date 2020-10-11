@@ -6,6 +6,7 @@ plugins {
 
     id("org.jetbrains.kotlin.jvm") version Versions.KOTLIN
     kotlin("kapt") version Versions.KOTLIN
+    id("com.gradle.plugin-publish") version "0.12.0"
 }
 
 repositories {
@@ -52,12 +53,15 @@ val check by tasks.getting(Task::class) {
 }
 
 group = "biz.davidpearson.gradle"
-version = "0.1"
+version = "1.0.0-alpha01"
 
 gradlePlugin {
     plugins {
         create("androidLintToSonar") {
             id = "biz.davidpearson.gradle.androidlinttosonar"
+            displayName = "Android Lint To Sonar"
+            description =
+                "A Gradle plugin that converts Android Lint XML files to a SonarQube Generic Issue Import Format JSON file."
             implementationClass = "biz.davidpearson.gradle.androidlinttosonar.AndroidLintToSonarPlugin"
         }
     }
@@ -75,3 +79,10 @@ tasks {
         outputDirectory = "${buildDir}/dokka"
     }
 }
+
+pluginBundle {
+    website = "https://davidpearson.biz/"
+    vcsUrl = "https://github.com/GrecoJava/AndroidLintToSonar"
+    tags = listOf("Sonar", "Android", "lint", "Generic Issue Import", "code quality")
+}
+

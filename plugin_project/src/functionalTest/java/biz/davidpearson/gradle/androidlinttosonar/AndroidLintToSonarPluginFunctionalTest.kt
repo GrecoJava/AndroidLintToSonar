@@ -405,6 +405,4 @@ class AndroidLintToSonarPluginFunctionalTest {
                 .readText(Charsets.UTF_8)
         JSONAssert.assertEquals(expectedResults, actual, JSONCompareMode.STRICT)
     }
-
-
 }
